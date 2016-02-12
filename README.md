@@ -70,23 +70,33 @@ We'll write a script called `parse_career_page.py` that will hit this url and ou
 
 Using BeautifulSoup, we can pretty easily extract the entries from these tables and throw them into a **Pandas dataframe**. The fields we care about from each entry in the table are *company*, *title*, *city*, and *state* - so we initialize our dataframe with these columns:
 
-``` df = pd.DataFrame([], columns=["company", "title", "city", "state"])```
+```python 
+df = pd.DataFrame([], columns=["company", "title", "city", "state"])
+```
 
 In one line, we can make a request to the career page url to get a response with the html source:
 
-``` html = requests.get(url).content```
+```python
+html = requests.get(url).content
+```
 
 And in the next line, we can create a 'soup' of all the parsed html elements in the page (including tables):
 
-``` soup = bs.BeautifulSoup(html)```
+```python
+soup = bs.BeautifulSoup(html)
+```
 
 We can then search for tables in our 'soup' and extract all the rows that correspond to job entries:
 
-```job_entries = list(soup.findAll("tr"))```
+```python
+job_entries = list(soup.findAll("tr"))
+```
 
 Then we want to append each of these entries to our dataframe (check out the script to see how this is done). To save our dataframe to a .csv file, it's yet another simple one-liner:
 
-``` df.to_csv("raw_jobs_data.csv") ```
+```python
+df.to_csv("raw_jobs_data.csv")
+```
 
 Check out the .csv file - each row should look something like:
 
@@ -106,11 +116,15 @@ df = pd.read_csv("raw_jobs_data.csv")
 
 Then the *key* line of code in this script are getting these summary statistics for each state, which we can do by **filtering by state** and then **getting the mode value of each column**. This looks like:
 
-``` MA_stats = df[df["state"] == "MA"].mode() ```
+```python
+MA_stats = df[df["state"] == "MA"].mode()
+```
 
 Populating a Python dictionary with our data, we then dump it to a .json file which is the following line at the end of our function:
 
-``` json.dump(domestic_stats, output_file, indent=4) ```
+```python
+json.dump(domestic_stats, output_file, indent=4)
+```
 
 So now, a nicely formatted state-by-state summary of our data can be found in ```final_jobs_data.json```. Here's the entry for Washington:
 
