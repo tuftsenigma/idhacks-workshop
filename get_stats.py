@@ -14,19 +14,9 @@ import	sys
 #% ===== parsing packages 
 
 try:
-	import pycountry	as pyc  		# country lookup package 
-except ImportError:
-	print "** It looks like the `pycountry' package is not installed..."
-	print "** \t - try running our `setup.py' script."
-	print "** \t - try installing it using pip via the command `pip install pycountry'."
-	sys.exit()
-
-
-try:
 	import pandas		 as pd  		# data analysis package 
 except ImportError:
 	print "** It looks like the `pandas' package is not installed..."
-	print "** \t - try running our `setup.py' script."
 	print "** \t - try installing it using pip via the command `pip install pandas'."
 	sys.exit()
 

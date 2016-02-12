@@ -1,4 +1,3 @@
-import 	requests
 import	sys
 
 
@@ -14,10 +13,18 @@ import	sys
 #% ===== scraping / parsing packages 
 
 try:
+	import requests		    		# make HTTP requests
+except:
+	print "** It looks like the `requests' package is not installed..."
+	print "** \t - try installing it using pip via the command `pip install requests'."
+	sys.exit()
+
+import 	requests
+
+try:
 	import pandas		 as pd 		# data analysis package
 except:
 	print "** It looks like the `pandas' package is not installed..."
-	print "** \t - try running our `setup.py' script."
 	print "** \t - try installing it using pip via the command `pip install pandas'."
 	sys.exit()
 
@@ -25,7 +32,6 @@ try:
 	import BeautifulSoup as bs 		# web scraping package
 except:
 	print "** It looks like the `BeautifulSoup' package is not installed..."
-	print "** \t - try running our `setup.py' script."
 	print "** \t - try installing it using pip via the command `pip install BeautifulSoup'."
 	import BeautifulSoup as bs
 	sys.exit()
