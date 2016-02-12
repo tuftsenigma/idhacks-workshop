@@ -1,0 +1,401 @@
+{
+    "WA": {
+        "number of graduates": 27, 
+        "fillKey": "20-49", 
+        "most popular title": "Program Manager", 
+        "most popular city": "Seattle", 
+        "most popular company": "Microsoft Corporation"
+    }, 
+    "VA": {
+        "number of graduates": 18, 
+        "fillKey": "10-19", 
+        "most popular title": "JD Candidate", 
+        "most popular city": "Arlington", 
+        "most popular company": "Curb"
+    }, 
+    "DE": {
+        "number of graduates": 2, 
+        "fillKey": "1-9", 
+        "most popular title": "N/A", 
+        "most popular city": "Newark", 
+        "most popular company": "N/A"
+    }, 
+    "DC": {
+        "number of graduates": 100, 
+        "fillKey": "0", 
+        "most popular title": "Legislative Assistant", 
+        "most popular city": "Washington", 
+        "most popular company": "Booz Allen Hamilton"
+    }, 
+    "WI": {
+        "number of graduates": 26, 
+        "fillKey": "20-49", 
+        "most popular title": "Project Manager", 
+        "most popular city": "Madison", 
+        "most popular company": "Epic"
+    }, 
+    "WV": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "HI": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "FL": {
+        "number of graduates": 18, 
+        "fillKey": "10-19", 
+        "most popular title": "PhD in Electrical Engineering", 
+        "most popular city": "Miami", 
+        "most popular company": "University of Florida"
+    }, 
+    "WY": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "NH": {
+        "number of graduates": 19, 
+        "fillKey": "10-19", 
+        "most popular title": "Buildings and Grounds", 
+        "most popular city": "Merrimack", 
+        "most popular company": "Anheuser Busch"
+    }, 
+    "NJ": {
+        "number of graduates": 17, 
+        "fillKey": "10-19", 
+        "most popular title": "Analyst with the Private Bank", 
+        "most popular city": "Newark", 
+        "most popular company": "Rutgers University"
+    }, 
+    "NM": {
+        "number of graduates": 2, 
+        "fillKey": "1-9", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "TX": {
+        "number of graduates": 20, 
+        "fillKey": "0", 
+        "most popular title": "Consultant", 
+        "most popular city": "Austin", 
+        "most popular company": "GLG"
+    }, 
+    "LA": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "AK": {
+        "number of graduates": 2, 
+        "fillKey": "1-9", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "NA": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "NC": {
+        "number of graduates": 9, 
+        "fillKey": "1-9", 
+        "most popular title": "Masters in Geosciences", 
+        "most popular city": "Chapel Hill", 
+        "most popular company": "University of North Carolina at Chapel Hill"
+    }, 
+    "ND": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "NE": {
+        "number of graduates": 2, 
+        "fillKey": "1-9", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "TN": {
+        "number of graduates": 7, 
+        "fillKey": "1-9", 
+        "most popular title": "Teacher", 
+        "most popular city": "Nashville", 
+        "most popular company": "Teach For America"
+    }, 
+    "NY": {
+        "number of graduates": 330, 
+        "fillKey": "100+", 
+        "most popular title": "Analyst", 
+        "most popular city": "New York", 
+        "most popular company": "Columbia University"
+    }, 
+    "PA": {
+        "number of graduates": 23, 
+        "fillKey": "20-49", 
+        "most popular title": "Research Assistant", 
+        "most popular city": "Philadelphia", 
+        "most popular company": "University of Pennsylvania"
+    }, 
+    "RI": {
+        "number of graduates": 7, 
+        "fillKey": "1-9", 
+        "most popular title": "Assistant Camp Director", 
+        "most popular city": "Newport", 
+        "most popular company": "Camp Ramleh"
+    }, 
+    "NV": {
+        "number of graduates": 2, 
+        "fillKey": "1-9", 
+        "most popular title": "Junior Mobile API Engineer", 
+        "most popular city": "Las Vegas", 
+        "most popular company": "Zappos, Inc."
+    }, 
+    "PR": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "GU": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "CO": {
+        "number of graduates": 21, 
+        "fillKey": "20-49", 
+        "most popular title": "Career Counselor", 
+        "most popular city": "Denver", 
+        "most popular company": "Aspen Center for Environmental Studies"
+    }, 
+    "VI": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "CA": {
+        "number of graduates": 161, 
+        "fillKey": "100+", 
+        "most popular title": "Software Engineer", 
+        "most popular city": "San Francisco", 
+        "most popular company": "Stanford University"
+    }, 
+    "AL": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "AS": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "AR": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "VT": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "IL": {
+        "number of graduates": 27, 
+        "fillKey": "20-49", 
+        "most popular title": "Assistant Editor", 
+        "most popular city": "Chicago", 
+        "most popular company": "BlackRock"
+    }, 
+    "GA": {
+        "number of graduates": 10, 
+        "fillKey": "0", 
+        "most popular title": "MD Candidate", 
+        "most popular city": "Atlanta", 
+        "most popular company": "Emory University School of Medicine"
+    }, 
+    "IN": {
+        "number of graduates": 3, 
+        "fillKey": "1-9", 
+        "most popular title": "International Visitors Program", 
+        "most popular city": "Indianapolis", 
+        "most popular company": "The International Center"
+    }, 
+    "IA": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "MA": {
+        "number of graduates": 966, 
+        "fillKey": "100+", 
+        "most popular title": "Research Assistant", 
+        "most popular city": "Boston", 
+        "most popular company": "Tufts University"
+    }, 
+    "AZ": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "ID": {
+        "number of graduates": 2, 
+        "fillKey": "1-9", 
+        "most popular title": "Legal Assistant", 
+        "most popular city": "Ketchem", 
+        "most popular company": "John Seller, Attorney at Law"
+    }, 
+    "CT": {
+        "number of graduates": 34, 
+        "fillKey": "20-49", 
+        "most popular title": "Masters in European and Russian Studies", 
+        "most popular city": "New Haven", 
+        "most popular company": "Yale University"
+    }, 
+    "ME": {
+        "number of graduates": 6, 
+        "fillKey": "1-9", 
+        "most popular title": "PhD Candidate", 
+        "most popular city": "Biddeford", 
+        "most popular company": "University of New England"
+    }, 
+    "MD": {
+        "number of graduates": 23, 
+        "fillKey": "20-49", 
+        "most popular title": "Research Fellow", 
+        "most popular city": "Baltimore", 
+        "most popular company": "Johns Hopkins Bloomberg School of Public Health"
+    }, 
+    "OK": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "OH": {
+        "number of graduates": 6, 
+        "fillKey": "1-9", 
+        "most popular title": "Artistic Apprentice", 
+        "most popular city": "Cleveland", 
+        "most popular company": "Cleveland Playhouse"
+    }, 
+    "UT": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "MO": {
+        "number of graduates": 2, 
+        "fillKey": "1-9", 
+        "most popular title": "JD Candidate", 
+        "most popular city": "St. Louis", 
+        "most popular company": "Washington University"
+    }, 
+    "MN": {
+        "number of graduates": 3, 
+        "fillKey": "1-9", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "MI": {
+        "number of graduates": 9, 
+        "fillKey": "1-9", 
+        "most popular title": "Masters in Public Health", 
+        "most popular city": "Ann Arbor", 
+        "most popular company": "University of Michigan"
+    }, 
+    "KS": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "MT": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "MP": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "MS": {
+        "number of graduates": 2, 
+        "fillKey": "1-9", 
+        "most popular title": "Service Member", 
+        "most popular city": "Vicksburg", 
+        "most popular company": "N/A"
+    }, 
+    "SC": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "KY": {
+        "number of graduates": 2, 
+        "fillKey": "1-9", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }, 
+    "OR": {
+        "number of graduates": 3, 
+        "fillKey": "1-9", 
+        "most popular title": "Analyst of Strategic Initiatives and Special Projects", 
+        "most popular city": "Portland", 
+        "most popular company": "VetSource"
+    }, 
+    "SD": {
+        "number of graduates": "N/A", 
+        "fillKey": "0", 
+        "most popular title": "N/A", 
+        "most popular city": "N/A", 
+        "most popular company": "N/A"
+    }
+}
