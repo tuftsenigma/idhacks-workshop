@@ -56,7 +56,7 @@ Before we dive in, here's a rundown of some of the technical tools in this demo 
 
 * **[DataMaps.js](http://datamaps.github.io/)** - the final javascript library we'll be using to conveniently generate our actual map. This one you'll need to download and place in your project directory:
 
-	```https://raw.githubusercontent.com/markmarkoh/datamaps/master/dist/datamaps.usa.min.js``` 
+	```https://raw.githubusercontent.com/markmarkoh/datamaps/master/dist/datamaps.usa.min.js```
 
 It's worth glancing at the docs for each of these packages, but by no means do you need to be a pro at any of these tools for this tutorial.
 
