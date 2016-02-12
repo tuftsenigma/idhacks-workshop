@@ -36,8 +36,7 @@ Before we dive in, here's a rundown of some of the technical tools in this demo 
 
 * **[Requests](http://docs.python-requests.org/en/master/) (v3.2.1)** - easily make HTTP requests in Python. Download this package using [pip](https://pypi.python.org/pypi/pip):
 
-	```pip install requests==2.9.1
-	```
+	```pip install requests==2.9.1```
 
 * **[BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) (v3.2.1)** - a web / text scraping package in Python that we'll use to parse the careers page; most easily installed using pip:
 
