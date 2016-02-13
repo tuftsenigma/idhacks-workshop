@@ -8,7 +8,20 @@
 
 Greetings hackers! In this technical demo, we're going to show you how to create a map visualization - from web mining to data processing to visualization - using a bunch of different tools.
 
-If you're somewhere in the **beginner** to **intermediate** skill level for Python, and Javascript (ideally both, but one or the other is fine too), then you'll probably get the most of this demo. If not, our code / this document is still worth a skim!
+If you've **done some sort of web development work** and you're somewhere in the **beginner** to **intermediate** skill level for Python, and Javascript (ideally both, but one or the other is fine too), then you'll probably get the most of this demo. If not, this tutorial is still worth looking at!
+
+The table of contents gives you a good idea as to what kind of pipeline we're going to write:
+
+## Table of Contents
+1. ### [Introduction](#introduction)
+2. ### [Context](#context)
+3. ### [Setup](#setup)
+4. ### [Web Scraping with BeautifulSoup](#web-scraping-with-beautifulsoup)
+5. ### [Data Cleaning / Processing with Pandas](#data-cleaning--processing-with-pandas)
+6. ### [Visualizing with d3.js](#visualizing-with-d3js)
+
+
+## Introduction
 
 Here are some technical concepts that we touch on in this demo:
 
@@ -114,7 +127,7 @@ We're again going to use a Pandas dataframe to do all our data manipulation. Fir
 df = pd.read_csv("raw_jobs_data.csv")
 ```
 
-Then the *key* line of code in this script are getting these summary statistics for each state, which we can do by **filtering by state** and then **getting the mode value of each column**. This looks like:
+Then the *key* line of code in this script is getting these summary statistics for each state, which we can do by **filtering by state** and then **getting the mode value of each column**. This looks like:
 
 ```python
 MA_stats = df[df["state"] == "MA"].mode()
@@ -185,12 +198,15 @@ idhacks-workshop/
 	+-- index.html
 ```
 
-### Building the viz
+### Building the viz - *index.html*
 
 Let's start with easy stuff first.
 
-All our HTML page `index.html` is going to do is *call* our javascripts. 
+The main thing our HTML page `index.html` is going to do is *call* our javascripts. For this, we need to include 'script tags' to our three libraries : **D3**, **TopoJSON**, and **DataMaps**.
 
+Oh, and we also want our viz to look pretty, so we're going to include a sexy Google Font in a css tag.
+
+`index.html` so far:
 
 ```html
 <!-- css -->
@@ -200,12 +216,230 @@ All our HTML page `index.html` is going to do is *call* our javascripts.
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 <script src="datamaps.usa.min.js"></script>
+
+
+<style>
+    body {
+        font: "Roboto Condensed", Helvetica, sans-serif;
+    } 
+</style>
+
+```
+
+Finally we're going to add two div tags. One that we're going to **inject the title into**:
+
+```html
+<div id="title" style="width: 1000px; height: 5px; font-family: 'Roboto Condensed';"></div>
+```
+
+And another that we're going to **inject the map** itself into:
+
+```html
+<div id="container" style="position: relative; left: -100px; width: 800px; height: 600px; font-family: 'Roboto Condensed';"></div>
+```
+
+Altogeher now, here's `index.html`:
+
+```html
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+
+<!-- javascript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="datamaps.usa.min.js"></script>
+
+
+<style>
+    body {
+        font: "Roboto Condensed", Helvetica, sans-serif;
+    } 
+</style>
+
+
+<!-- d3 tags -->
+<div id="title" style="width: 1000px; height: 5px; font-family: 'Roboto Condensed';"></div>
+<div id="container" style="position: relative; left: -100px; width: 800px; height: 600px; font-family: 'Roboto Condensed';"></div>
+
+
+<script src="visualize_data.js"></script>
 ```
 
 
+### Building the viz - *visualize_data.js*
 
-- serving using Python simpleHTTPServer in a new directory
-- hosting on gh-pages
+Finally, the meat of the visualization is going to go in `visualize_data.js`.
+
+First, we want to create a stylish title for our visual. We can do that in a chain of function calls as follows:
+
+
+```javascript
+d3.select("#title").append("svg")
+            .attr("width", 900)
+            .attr("height", 50)
+            .append("text")
+            .attr("x", 100)
+            .attr("y", 40)
+            .style("font-size", "24px")
+            .text("Jumbo Graduates in the United States");
+```
+
+What this does is it *selects* the `title` div tag we created in `index.html` and injects our text... with width, height and position attributes. Whoa!
+
+We can, in fact, do this again to tag on a little subtitle to our div tag:
+
+```javascript
+d3.select("#title").append("svg")
+            .attr("width", 900)
+            .attr("height", 50)
+            .append("text")
+            .attr("x", 100)
+            .attr("y", 20)
+            .attr("fill", "#989898")
+            .style("font-size", "14px")
+            .text("Domestic first outcomes of Tufts graduates (hover for statistics)");
+```
+
+Now for the grand finale, we make a call to the [DataMap API](http://datamaps.github.io/) (which if you remember, we downloaded to our directory and included as a script tag in `index.html`). Basically how we do this is we *pass in a dictionary* with a bunch of arguments to tell our map to behave a certain way. Things like *where* to inject our map:
+
+```javascript
+  element: document.getElementById('container'),
+```
+
+what *kind* of map we want:
+
+```javascript
+  scope: 'usa',
+```
+
+where to get our *data*:
+
+```javascript
+dataUrl : "final_jobs_data.json",
+```
+
+how to *fill in* our map from the data:
+
+```javascript
+	fills: {
+        "0" : "#EAE7E6",
+        "1-9": '#C1B7B2',
+        "10-19": '#988780',
+        "20-49": '#6E574D',
+        "50-99": '#593F33',
+        "100+": '#300F00',
+        defaultFill: '#EAE7E6'
+    },
+```
+
+AND what kind of html to display when we *hover over states*:
+
+```javascript
+  popupTemplate: function(geography, data) { 
+    // html for a hovering tooltip 
+    return '<div style="border-radius:10px; padding: 10px; position: relative; top: -50px; right: -50px; opacity: 0.85;" class="hoverinfo"><b><div style="font-size:20px">' + geography.properties.name + '</div></b>' + "<br>" + 
+    '<b>Reported # of grads:</b> &#09;' +  data["number of graduates"] + '<br>' +        
+    '<b>Most popular position:</b> &#09;' +  data["most popular title"] + '<br>' +
+    '<b>Most popular destination:</b> &#09;' +  data["most popular city"] + '<br>' +
+    '<b>Most popular institution:</b> &#09;' +  data["most popular company"] + '<br>';
+    }
+},
+```
+
+Finally, at the end, we include a little legend for our map with the following call:
+
+```javascript
+map.legend();
+```
+And voilà, we have our script to create a map viz!
+
+```javascript
+d3.select("#title").append("svg")
+            .attr("width", 900)
+            .attr("height", 50)
+            .append("text")
+            .attr("x", 100)             
+            .attr("y", 40)
+            .style("font-size", "24px")
+            .text("Jumbo Graduates in the United States");
+
+d3.select("#title").append("svg")
+            .attr("width", 900)
+            .attr("height", 50)
+            .append("text")
+            .attr("x", 100)             
+            .attr("y", 20)
+            .attr("fill", "#989898")
+            .style("font-size", "14px")
+            .text("Domestic first outcomes of Tufts graduates (hover for statistics)");
+
+var map = new Datamap({
+  element: document.getElementById('container'),
+  scope: 'usa',
+  geographyConfig: {
+  popupTemplate: function(geography, data) { 
+    // html for a hovering tooltip 
+    return '<div style="border-radius:10px; padding: 10px; position: relative; top: -50px; right: -50px; opacity: 0.85;" class="hoverinfo"><b><div style="font-size:20px">' + geography.properties.name + '</div></b>' + "<br>" + 
+    '<b>Reported # of grads:</b> &#09;' +  data["number of graduates"] + '<br>' +        
+    '<b>Most popular position:</b> &#09;' +  data["most popular title"] + '<br>' +
+    '<b>Most popular destination:</b> &#09;' +  data["most popular city"] + '<br>' +
+    '<b>Most popular institution:</b> &#09;' +  data["most popular company"] + '<br>';
+    }
+},
+  fills: {
+        "0" : "#EAE7E6",
+        "1-9": '#C1B7B2',
+        "10-19": '#988780',
+        "20-49": '#6E574D',
+        "50-99": '#593F33',
+        "100+": '#300F00',
+        defaultFill: '#EAE7E6'
+    },
+dataUrl : "final_jobs_data.json",
+
+});
+map.legend();
+```
+
+Now you're left wondering one (probably among many) question - how the hell do I actually *see* my visualization?
+
+### Displaying your viz using SimpleHTTPServer
+
+We've finished our visualization - now let's mount it on a server to see it in action!
+
+Time to whip out a handy **terminal**. First, `cd` into our `visualization/` directory:
+
+```bash
+cd visualization/
+```
+
+Using Python's `SimpleHTTPServer` module, we're going to *serve this entire directory*:
+
+```bash
+python -m SimpleHTTPServer
+```
+
+Drum-roll please...
+
+If we open up a browser window and hit `localhost:8000`, behold our visualization in its full glory!
+
+![alt text](imgs/served.png)
+
+
+### Hosting and sharing your viz using GithubPages
+
+Oh man, oh man, we made it! Now for the final important step - sharing our viz. 
+
+To do this we're going to use [github pages](https://pages.github.com/) to host our served directory. 
+
+You can find out how to best do that [here](https://help.github.com/articles/creating-project-pages-manually/). 
+
+Check out the final visualization hosted on our github page right [here](http://tuftsenigma.github.io/idhacks-workshop/visualization/)!
+
+
+
+
+
 
 
 

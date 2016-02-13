@@ -15,7 +15,7 @@ d3.select("#title").append("svg")
             .style("font-size", "24px")
             .text("Jumbo Graduates in the United States");
 
-// appending a svg element for visualization itself
+// appending a svg element for a little subtitle
 d3.select("#title").append("svg")
             .attr("width", 900)
             .attr("height", 50)
@@ -32,7 +32,7 @@ var map = new Datamap({
   scope: 'usa',
   geographyConfig: {
   popupTemplate: function(geography, data) { 
-    // hover tooltip 
+    // html for a hovering tooltip 
     return '<div style="border-radius:10px; padding: 10px; position: relative; top: -50px; right: -50px; opacity: 0.85;" class="hoverinfo"><b><div style="font-size:20px">' + geography.properties.name + '</div></b>' + "<br>" + 
     '<b>Reported # of grads:</b> &#09;' +  data["number of graduates"] + '<br>' +        
     '<b>Most popular position:</b> &#09;' +  data["most popular title"] + '<br>' +
