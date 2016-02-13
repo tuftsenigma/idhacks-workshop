@@ -26,7 +26,7 @@ In 2015, The Tufts Independent Data Journal wrote an article that looked to answ
 
 ![alt text](imgs/site.png)
 
-So we have our data. Let's make something with it.
+This is our data. Let's make something with it.
 
 ## Setup
 
@@ -98,7 +98,7 @@ Then we want to append each of these entries to our dataframe (check out the scr
 df.to_csv("raw_jobs_data.csv")
 ```
 
-Check out the .csv file - each row should look something like:
+Check out the resulting .csv file - each row should look something like:
 
 ``` 0,Eastdil Secured,Analyst,New York,NY ```
 
@@ -138,7 +138,74 @@ Looks like Jumbos are doing alright out there!
 *Finally*, we're at a place where we can create our map!
 
 
+### A speed introduction to D3
 
+D3 (data-driven documents) is a javascript library that does one thing: take data and *bind* it to HTML objects. Sounds simple right? In reality, turns out that D3 is kind of, sort of really hard to work with.
+
+But that's okay! Here are two key elements of D3, which are pretty much all you need to know for this demo:
+
+- **to make visualizations, we inject [SVG elements](http://www.w3schools.com/svg/) into our HTML code.**
+
+- **to make *interactive* visualizations, we write (asynchronous) functions that tell our HTML elements how to react when users do things.**
+
+Given that super high level overview... let's dig into this!
+
+### Setting up the visualization directory
+
+Right now with your scripts and data files, your directory structure should look like this:
+
+``` ruby
+idhacks-workshop/
++-- parse_career_page.py
++-- get_statts.py
++-- raw_jobs_data.csv
++-- final_jobs_data.json
+```
+
+Let's create a directory `/visualization` to put all our visualization code. 
+
+The first thing we want to do is copy the file with our summary data - `final_jobs_data.json` - into the `/visualization` directory. This is after all, what we'll be basing our map visualization off of!
+
+Next, let's create two new files - `index.html` and `visualize_data.js`. Our file `index.html` is what the visualization is going to directly be *injected into*. On the other hand, `visualize_data.js` is the script that's going to actually create our map visualization and do the injecting.
+
+Finally, if you recall from earlier, we want to download the DataMap API - a *really* useful javascript library that's basically going to be doing all the work for us in rendering this map. You can download the single file from `https://raw.githubusercontent.com/markmarkoh/datamaps/master/dist/datamaps.usa.min.js` and drag into our directory as well.
+
+Whew! To recap, our directory should now look like *this*:
+
+``` ruby
+idhacks-workshop/
++-- parse_career_page.py
++-- get_stats.py
++-- raw_jobs_data.csv
++-- final_jobs_data.json
++-- visualization/
+	+-- datamaps.usa.min.js
+	+-- final_jobs_data.json
+	+-- visualize_data.js
+	+-- index.html
+```
+
+### Building the viz
+
+Let's start with easy stuff first.
+
+All our HTML page `index.html` is going to do is *call* our javascripts. 
+
+
+```html
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+
+<!-- javascript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="datamaps.usa.min.js"></script>
+```
+
+
+
+- serving using Python simpleHTTPServer in a new directory
+- hosting on gh-pages
 
 
 
