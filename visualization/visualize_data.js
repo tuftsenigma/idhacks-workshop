@@ -1,11 +1,11 @@
 
-    // IDHacks 2016 Workshop - Visualize Tufts Graduate Outcomes:
+// IDHacks 2016 Workshop - Visualize Tufts Graduate Outcomes:
 
-    // Javascript to take data from Python processing stage and visualize using D3
-    // library. (3/3)
+// Javascript to take data from Python processing stage and visualize using D3
+// library. (3/3)
 
 
-    
+// appending a svg element for title
 d3.select("#title").append("svg")
             .attr("width", 900)
             .attr("height", 50)
@@ -15,6 +15,7 @@ d3.select("#title").append("svg")
             .style("font-size", "24px")
             .text("Jumbo Graduates in the United States");
 
+// appending a svg element for visualization itself
 d3.select("#title").append("svg")
             .attr("width", 900)
             .attr("height", 50)
@@ -25,11 +26,13 @@ d3.select("#title").append("svg")
             .style("font-size", "14px")
             .text("Domestic first outcomes of Tufts graduates (hover for statistics)");
 
+// call Datamap API 
 var map = new Datamap({
   element: document.getElementById('container'),
   scope: 'usa',
   geographyConfig: {
-  popupTemplate: function(geography, data) {
+  popupTemplate: function(geography, data) { 
+    // hover tooltip 
     return '<div style="border-radius:10px; padding: 10px; position: relative; top: -50px; right: -50px; opacity: 0.85;" class="hoverinfo"><b><div style="font-size:20px">' + geography.properties.name + '</div></b>' + "<br>" + 
     '<b>Reported # of grads:</b> &#09;' +  data["number of graduates"] + '<br>' +        
     '<b>Most popular position:</b> &#09;' +  data["most popular title"] + '<br>' +
